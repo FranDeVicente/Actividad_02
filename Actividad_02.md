@@ -97,5 +97,13 @@ Ahora, vamos a acceder al puerto de escucha, que es el 8080. Éste puerto, se pu
 
 **Nota:** Algunas aplicaciones requieren acceso con contraseñas para dar roles como el de "manager-gui" o "admin-gui". Nosotros podemos crear usuarios y ponerles una contraseña dándole a su vez el rol que necesite.
 
+Ahora, nosotros vamos a dar permisos a un usuario para que tenga rol de "manager-gui" y de "admin-gui" y para ello, tenemos que acceder al fichero **tomcat-users.xml** mediante el siguiente comando:
 
+	- sudo nano /etc/tomcat9/tomcat-users.xml
+![comando11](imagenes/comando11.png)
+
+Para cambiar los roles, hay que seguir los siguientes pasos:
+
+**Primero:** Hay que quitar los comentarios <!-- 
+![comando12](imagenes/comando12.png)
 
