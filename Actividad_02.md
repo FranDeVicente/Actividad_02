@@ -44,6 +44,31 @@ Para instalar Apache en un servidor Linux, debemos usar el siguiente comando:
 
 	- sudo apt install apache2
 
+![comando5](imagenes/comando05.png)
+
+**Nota:** Podemos comprobar que nuestro apache está instalado, abriendo un navegador web y escribiendo "localHost". De esta manera, nos saldrá un certificado que nos indica que nuestro apache ha sido instalado correctamente.
+![comando6](imagenes/comando6.png)
 
 
+Ahora bien, cabe mencionar de que a pesar de que ya tenemos correctamente nuestro apache instalado, **tenemos que modificar el cortafuegos** para que los usuarios de fuera, puedan hacer peticiones a nuestro servidor. 
+
+Para hacer estas modificaciones, hacemos los siguientes comandos.
+
+	- sudo ufw app list  
+
+Este comando es para visualizar los perfiles de aplicación que pueden utilizarse para el acceso. Hay 3 perfiles:
+
+- **Apache:** que es el básico y va por el puerto 80. Sirve para el tráfico descifrado.
+- **Apache Full:** abre además del puerto de Apache, el puerto 443 que es para tráfico cifrado (SSL/TSL)
+- **Apache Secure:** este sólo abre el puerto 443
+
+Nosotros, para éste ejercicio vamos a dar los permisos básicos de Apache, pudiendo hacer cualquiera de los tres.
+
+![comando7](imagenes/comando7.png) 
+
+![comando8](imagenes/comando8.png)
+
+De ésta manera, ya tenemos nuestro Apache listo.
+
+# 03.- Tomcat
 
