@@ -72,3 +72,21 @@ De ésta manera, ya tenemos nuestro Apache listo.
 
 # 03.- Tomcat
 
+A diferencia de Apache, Tomcat también es un servidor de Apache, pero puede ejecutar varias especificaciones diferentes de Java, como Java Servlet, JavaServer Pages (JSP), Java EL (Expresiones de Lenguaje) y WebSocket.
+
+Para instalar Tomacat con nuestro terminal Linux, tenemos que hacer el siguiente comando:
+
+	- sudo apt install tomcat9
+
+![comando9](imagenes/comando9.png)
+
+Podemos comprobar su estado usando el comando 
+
+	- systemctl status tomcat9
+
+Ahora, vamos a acceder al puerto de escucha, que es el 8080. Éste puerto, se puede modificar a nuestra necesidad modificando el archivo **sever.xml** 
+
+	- sudo ufw allow 8080/tpc (para acceder al puerto de escucha)
+	- sudo nano/etc/tomcat9/server.xml (para acceder al fichero)
+
+
