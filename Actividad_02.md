@@ -11,6 +11,10 @@ Queremos preparar nuestro servidor Linux para poder desplegar una aplicación we
 4. openSSH
 5. MariaDB
 
+**Requerimiento 2:**
+
+Así mismo, queremos asegurarnos de que los servidores están bien configurados y son accesibles antes de desplegar la aplicación. Por ello debemos configurar y comprobar que los puertos asociados a Apache, Tomcat y MariaDB están abiertos en el Firewall y son accesibles desde el exterior.
+
 # 01.- Java 
 
 Java es muy funcional para crear aplicaciones y procesos o programas. Nos permite además ejecutar dichas aplicaciones después, en diversos Sistemas Operativos. 
@@ -62,7 +66,7 @@ Este comando es para visualizar los perfiles de aplicación que pueden utilizars
 - **Apache Full:** abre además del puerto de Apache, el puerto 443 que es para tráfico cifrado (SSL/TSL)
 - **Apache Secure:** este sólo abre el puerto 443
 
-Nosotros, para éste ejercicio vamos a dar los permisos básicos de Apache, pudiendo hacer cualquiera de los tres.
+Nosotros, para éste ejercicio vamos a dar los permisos básicos de Apache,  que es el que nos marca el enunciado de la actividad, pero sabiendo que lo podemos hacer para cualquiera de los tres.
 
 ![comando7](imagenes/comando7.png) 
 
@@ -88,5 +92,10 @@ Ahora, vamos a acceder al puerto de escucha, que es el 8080. Éste puerto, se pu
 
 	- sudo ufw allow 8080/tpc (para acceder al puerto de escucha)
 	- sudo nano/etc/tomcat9/server.xml (para acceder al fichero)
+
+![comando10](imagenes/comando10.png)
+
+**Nota:** Algunas aplicaciones requieren acceso con contraseñas para dar roles como el de "manager-gui" o "admin-gui". Nosotros podemos crear usuarios y ponerles una contraseña dándole a su vez el rol que necesite.
+
 
 
