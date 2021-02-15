@@ -182,3 +182,19 @@ Cuando hayamos instalado mariaDB, podemos comprobar su estado mediante el comand
 	- sudo systemctl status mariadb
 ![comando23](imagenes/comando23.png)
 
+**Nota:** Podemos usar las herramientas de mysqladmin para establecer la conexión con la base de datos mediante el comando **sudo mysqladmin version**
+
+Ahora comprobamos que los puertos están abiertos o "escuchando" mediante uno de los siguientes comandos:
+
+	- sudo lsof -i -P -n
+	- sudo netstat -plnut (sinónimo del anterior)
+
+![comando24](imagenes/comando24.png)
+
+Por último, comprobamos la configuración del cortafuegos. Lo hacemos mediante el comando 
+
+	- sudo ufw app list
+	- sudo ufw status (para ver el estado)
+
+**ufw** nos vale para abrir y cerrar los puertos de escucha que necesitemos. Se usan como interfaces de conexión para que las aplicaciones puedan establecer dicha conexión.
+
