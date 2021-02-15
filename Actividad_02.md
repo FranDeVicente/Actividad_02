@@ -135,6 +135,41 @@ Por último, reiniciamos el servidor tomcat mediante el siguiente comando:
 	- sudo systemctl restart tomcat
 
 Una vez hayamos reiniciado el servidor, procedemos a intentar acceder a la página del tomcat http://localhost:8080 y nos deverá aparecer la siguiente pantalla:
+![comando17](imagenes/comando17.png)
 
+Una vez hemos comprobado que podemos acceder, pulsamos en la opción que nos sale "Manager App" como se muestra en la imagen anterior. Una vez pulsemos, nos pedirá la contraseña y el usuario que deberemos poner el que hemos creado en el archivo users.xml si es correcto, accederemos al servidor como se muestra a continuación:
 
- 
+![comando18](imagenes/comando18.png)
+
+**Nota:** Podemos comprobar que funciona instalando más aplicaciones desde la pestaña **Deploy**, así como modificarlo o eliminarlo.
+
+# 04.- Open SSH
+
+**Secure Sell (SSH)**, nos deja acceder a una máquina remota de forma segura. **OpenSSH** son las herramientas basadas en éste protocolo. 
+
+Vamos a instalar las herramientas tanto para el servidor como para el cliente en un sólo comando:
+
+	- sudo apt-get install openssh-server openssh-client
+
+![comando19](imagenes/comando19.png)
+
+Una vez hayamos instalado openSSH, vamos a comprobar que funciona correctamente. Para ello, hacemos el comando
+
+	- sudo systemctl status sshd.service
+
+![comando20](imagenes/comando20.png)
+
+Ahora que hemos comprobado que el estado está activo, vamos a utilizar el comando **ifconfig** para averiguar la IP de nuestra máquina virtual como servidor y, habría que saber cuál es la IP del cliente.
+
+Para usar SSH, hacemos el siguiente comando para enlazar con el servidor
+
+	- ssh@ipServidor (en mi caso, sería:) ssh@10.0.2.15
+
+![comando21](imagenes/comando21.png)
+
+Ya podemos acceder al ordenador del cliente y hacer las transacciones correspondientes. Una vez las tengamos hechas, podemos salir ejecutando el comando exit.
+
+![comando22](imagenes/comando22.png)
+
+# 05.- MariaDB
+
