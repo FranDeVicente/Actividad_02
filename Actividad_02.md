@@ -173,3 +173,12 @@ Ya podemos acceder al ordenador del cliente y hacer las transacciones correspond
 
 # 05.- MariaDB
 
+MariaDB es una base de datos relacional de código abierto similar a MySQL. Para instalar MariaDB, utilizamos el siguiente comando:
+
+	- sudo apt install mariadb-server
+
+Cuando hayamos instalado mariaDB, podemos comprobar su estado mediante el comando
+
+	- sudo systemctl status mariadb
+![comando23](imagenes/comando23.png)
+
