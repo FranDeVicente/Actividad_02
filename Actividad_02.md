@@ -29,7 +29,7 @@ El propio terminal nos informa que no ha encontrado ninguna versión y además, 
 
 	- sudo apt install default-jre
 
-**Nota** Nos puede pasar que, como en mi caso, nos solicite antes una actualización para poder usar apt-get y simplemente, acutualizamos como muestro en la siguiente imagen
+**Nota** Nos puede pasar que, como en mi caso, nos solicite antes una actualización para poder usar apt-get y simplemente, actualizamos como muestro en la siguiente imagen
 ![comando2](imagenes/comando2.png)
 
 Hecha la actualización, procedemos a instalar java
@@ -107,3 +107,25 @@ Para cambiar los roles, hay que seguir los siguientes pasos:
 **Primero:** Hay que quitar los comentarios <!-- 
 ![comando12](imagenes/comando12.png)
 
+**Segundo:** Paramos y arrancamos el tomcat para acceder al manager.
+
+	- service tomcat9 stop  (parar)
+	- service tomcat9 start (arrancar)
+
+![comando13](imagenes/comando13.png)
+
+**Tercero:** Tenemos que editar el archivo de configuración context.xml para los permisos de la aplicación (no del tomcat). Podemos hacerlo mediante el siguiente comando:
+
+	- sudo nano /usr/share/tomcat9-admin/manager/META-INF/context.xml
+
+**Nota:** Es posible que nos aparezca un mensaje como que no encuentra el fichero, como ha sido en mi caso. Cuando pasa esto, podemos solventar el error mediante comandos. Para ello, nos movemos a la carpeta del directorio:
+
+	- cd /tmp (para acceder al directorio)
+	- sudo mv apache-tomcat-*/ /opt/tomcat/ (para moverlo a dicha carpeta)
+Una vez hecho esto, podemos dar los permisos correspondientes para la aplicación con los siguientes comandos:
+
+	- sudo chown -R tomcat: /opt/tomcat (nótese que hemos creado un usuario previo)
+	- sudo chmod +x /opt/tomcat/latest/bin/*.sh (para que  scripts sean ejecutable)
+
+
+ 
