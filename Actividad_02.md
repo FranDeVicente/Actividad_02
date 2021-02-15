@@ -86,20 +86,20 @@ Para instalar Tomacat con nuestro terminal Linux, tenemos que hacer el siguiente
 
 Podemos comprobar su estado usando el comando 
 
-	- systemctl status tomcat9
+	- systemctl status tomcat
 
 Ahora, vamos a acceder al puerto de escucha, que es el 8080. Éste puerto, se puede modificar a nuestra necesidad modificando el archivo **sever.xml** 
 
 	- sudo ufw allow 8080/tpc (para acceder al puerto de escucha)
-	- sudo nano/etc/tomcat9/server.xml (para acceder al fichero)
+	- sudo nano/etc/tomcat/server.xml (para acceder al fichero)
 
 ![comando10](imagenes/comando10.png)
 
-**Nota:** Algunas aplicaciones requieren acceso con contraseñas para dar roles como el de "manager-gui" o "admin-gui". Nosotros podemos crear usuarios y ponerles una contraseña dándole a su vez el rol que necesite.
+**Nota:** Observamos que el puerto está indicado en el "-1" por lo que hay que cambiarlo al puerto 8080. Por otro lado, algunas aplicaciones requieren acceso con contraseñas para dar roles como el de "manager-gui" o "admin-gui". Nosotros podemos crear usuarios y ponerles una contraseña dándole a su vez el rol que necesite.
 
 Ahora, nosotros vamos a dar permisos a un usuario para que tenga rol de "manager-gui" y de "admin-gui" y para ello, tenemos que acceder al fichero **tomcat-users.xml** mediante el siguiente comando:
 
-	- sudo nano /etc/tomcat9/tomcat-users.xml
+	- sudo nano /etc/tomcat/tomcat-users.xml
 ![comando11](imagenes/comando11.png)
 
 Para cambiar los roles, hay que seguir los siguientes pasos:
@@ -107,25 +107,34 @@ Para cambiar los roles, hay que seguir los siguientes pasos:
 **Primero:** Hay que quitar los comentarios <!-- 
 ![comando12](imagenes/comando12.png)
 
-**Segundo:** Paramos y arrancamos el tomcat para acceder al manager.
+**Segundo:** Añadimos los usuarios o modificamos los arriba indicados.
+![comando14](imagenes/comando14.png)
 
-	- service tomcat9 stop  (parar)
-	- service tomcat9 start (arrancar)
+Paramos y arrancamos el tomcat para acceder al manager.
 
-![comando13](imagenes/comando13.png)
+	- service tomcat stop  (parar)
+	- service tomcat start (arrancar)
 
-**Tercero:** Tenemos que editar el archivo de configuración context.xml para los permisos de la aplicación (no del tomcat). Podemos hacerlo mediante el siguiente comando:
 
-	- sudo nano /usr/share/tomcat9-admin/manager/META-INF/context.xml
+**Tercero:** Tenemos que editar el archivo de configuración **context.xml** para los permisos de la aplicación (no del tomcat). Podemos hacerlo mediante el siguiente comando:
 
-**Nota:** Es posible que nos aparezca un mensaje como que no encuentra el fichero, como ha sido en mi caso. Cuando pasa esto, podemos solventar el error mediante comandos. Para ello, nos movemos a la carpeta del directorio:
+	- sudo nano /usr/share/tomcat-admin/manager/META-INF/context.xml
 
-	- cd /tmp (para acceder al directorio)
-	- sudo mv apache-tomcat-*/ /opt/tomcat/ (para moverlo a dicha carpeta)
-Una vez hecho esto, podemos dar los permisos correspondientes para la aplicación con los siguientes comandos:
+Una vez accedido al archivo context, descomentamos el atributo "value"
+![comando15](imagenes/comando15.png)
 
-	- sudo chown -R tomcat: /opt/tomcat (nótese que hemos creado un usuario previo)
-	- sudo chmod +x /opt/tomcat/latest/bin/*.sh (para que  scripts sean ejecutable)
+**Cuarto:** Repetimos el mismo proceso para el archivo **Manager**, usando el comando:
+
+	- sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
+	Nótese que hay que indicar la ruta correspondiente a la instalación del tomcat.
+
+![comando16](imagenes/comando16.png)
+
+Por último, reiniciamos el servidor tomcat mediante el siguiente comando:
+
+	- sudo systemctl restart tomcat
+
+Una vez hayamos reiniciado el servidor, procedemos a intentar acceder a la página del tomcat http://localhost:8080 y nos deverá aparecer la siguiente pantalla:
 
 
  
