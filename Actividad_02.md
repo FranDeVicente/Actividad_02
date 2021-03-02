@@ -198,3 +198,10 @@ Por último, comprobamos la configuración del cortafuegos. Lo hacemos mediante 
 
 **ufw** nos vale para abrir y cerrar los puertos de escucha que necesitemos. Se usan como interfaces de conexión para que las aplicaciones puedan establecer dicha conexión.
 
+**Nota:** Si queremos ver todos los puertos, podemos utilizar el siguiente comando:
+
+	- sudo netstat -tulpen
+
+![comando25](imagenes/comando25.png)
+
+Podemos comprobar el estado del servidor, la BBDD y el firewall con los comandos mencionados anteriormente **sudo systemctl status nombreApp**
